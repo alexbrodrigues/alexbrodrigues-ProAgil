@@ -126,7 +126,6 @@ namespace ProAgil.WebAPI.Controllers
             SigningCredentials = creds
         };
         
-        // Sugestão do Aluno Renan Duarte
         //  var tokenJwt = new SecurityTokenDescriptor
         //    {
         //        Subject = new ClaimsIdentity(userClaims),

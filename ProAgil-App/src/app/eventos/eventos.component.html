@@ -153,12 +153,12 @@ role="dialog" aria-labelledby="dialog-sizes-name1">
           <table>
             <tr>
               <td>
-                <button class="btn btn btn-sucess" (click)="file.click()">
+                <button class="btn btn-success" (click)="file.click()">
                   Enviar Imagem
                 </button>
-                <input type="file" #file class="form-control"
-                [ngClass]="{'is-invalid': registerForm.get('imagemURL').errors && registerForm.get('imagemURL').touched}" (change)="onFileChange($event)"
-                formControlName="imagemURL" placeholder="Insira a Imagem" style="display: none;">
+                <input type="file" #file [ngClass]="{'is-invalid': registerForm.get('imagemURL').errors
+                && registerForm.get('imagemURL').touched}" (change)="onFileChange($event)" class="form-control is-invalid"
+                formControlName="imagemURL" placeholder="Insira a Imagem" style="display: none">
               </td>
             </tr>
           </table>
