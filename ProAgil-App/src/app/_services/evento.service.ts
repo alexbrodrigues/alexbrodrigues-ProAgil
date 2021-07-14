@@ -21,12 +21,12 @@ export class EventoService {
     return this.http.get<Evento[]>(`${this.baseURL}/getByTema/${tema}`);
   }
 
-  getEventoById(id: number): Observable<Evento>{
-    return this.http.get<Evento>(`${this.baseURL}/getById/${id}`);
+  getEventoById(id: number): Observable<Evento> {
+    return this.http.get<Evento>(`${this.baseURL}/${id}`);
   }
 
-  postUpload(file: File[], name: string) {
-    const fileToUplaod = file[0] as File;
+  postUpload(file: File, name: string) {
+    const fileToUplaod = <File>file[0];
     const formData = new FormData();
     formData.append('file', fileToUplaod, name);
 

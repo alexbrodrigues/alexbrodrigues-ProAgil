@@ -6,9 +6,11 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule,  } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule  } from 'ngx-bootstrap/datepicker';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NgxMaskModule } from 'ngx-mask';
+import { NgxCurrencyModule } from 'ngx-currency';
 import { ToastrModule } from 'ngx-toastr';
 
 import { EventoService } from './_services/evento.service';
@@ -27,16 +29,17 @@ import { LOCALE_ID } from '@angular/core';
 
 import { DateTimeFormatPipePipe } from './_helps/DateTimeFormatPipe.pipe';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { EventoEditComponent } from './eventos/eventoEdit/eventoEdit.component';
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, EventosComponent, PalestrantesComponent, DashboardComponent, ContatosComponent, TituloComponent, UserComponent, RegistrationComponent, LoginComponent, DateTimeFormatPipePipe],
+  declarations: [AppComponent, NavComponent, EventosComponent, EventoEditComponent, PalestrantesComponent, DashboardComponent, ContatosComponent, TituloComponent, UserComponent, RegistrationComponent, LoginComponent, DateTimeFormatPipePipe],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,BrowserAnimationsModule,ReactiveFormsModule,
     ToastrModule.forRoot({timeOut: 10000,
       positionClass: 'toast-bottom-right',
-      preventDuplicates: true}), BsDropdownModule.forRoot(), TooltipModule.forRoot(), ModalModule.forRoot(), BsDatepickerModule.forRoot()],
+      preventDuplicates: true}), BsDropdownModule.forRoot(), TooltipModule.forRoot(), ModalModule.forRoot(), BsDatepickerModule.forRoot(), TabsModule.forRoot(), NgxMaskModule.forRoot(), NgxCurrencyModule],
   providers: [EventoService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent],
 })

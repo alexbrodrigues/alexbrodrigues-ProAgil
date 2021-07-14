@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 export class LoginComponent implements OnInit {
   titulo: string = 'Login';
   model: any = {};
+  imagemURL = 'assets/img/login.png';
 
   constructor(private authService: AuthService, public router: Router, private toastr: ToastrService) { }
 

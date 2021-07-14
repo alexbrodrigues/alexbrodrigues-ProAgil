@@ -30,6 +30,11 @@ namespace ProAgil.Repository
             _context.Remove(entity);
         }
 
+        public void DeleteRange<T>(T[] entityArray) where T : class
+        {
+            _context.RemoveRange(entityArray);
+        }
+
         public async Task<bool> SaveChangesAsync()
         {
             return (await _context.SaveChangesAsync() > 0);
@@ -55,22 +60,23 @@ namespace ProAgil.Repository
             return await query.ToArrayAsync();
         }
 
-        public async Task<Evento> GetAllEventoAsyncById(int EventoId, bool includePalestrantes = false)
+        public async Task<Evento> GetEventoAsyncById(int EventoId, bool includePalestrantes)
         {
             IQueryable<Evento> query = _context.Eventos
-            .Include(x => x.Lotes)
-            .Include(x => x.RedesSociais);
+                .Include(c => c.Lotes)
+                .Include(c => c.RedesSociais);
 
             if (includePalestrantes)
             {
                 query = query
-                .Include(x => x.PalestrantesEventos)
-                .ThenInclude(x => x.Palestrante);
+                    .Include(pe => pe.PalestrantesEventos)
+                    .ThenInclude(p => p.Palestrante);
             }
 
-            query = query.AsNoTracking()
-            .OrderByDescending(x => x.DataEvento)
-            .Where(x => x.Id == EventoId);
+            query = query
+                        .AsNoTracking()
+                        .OrderBy(c => c.Id)
+                        .Where(c => c.Id == EventoId);
 
             return await query.FirstOrDefaultAsync();
         }

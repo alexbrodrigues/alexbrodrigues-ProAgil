@@ -34,7 +34,7 @@
           <th>Telefone</th>
           <th>Email</th>
           <th>Lote</th>
-          <th>Opções</th>
+          <th colspan="2">Opções</th>
         </tr>
       </thead>
       <tbody *ngIf="eventos && eventos.length">
@@ -59,15 +59,16 @@
           </td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-sm btn-primary"
-              tooltip="Editar" (click)="editarEvento(evento,template)">
+              <button class="btn btn-sm btn-primary" tooltip="Editar" (click)="editarEvento(evento,template)">
               <i class="fa fa-edit"></i>
             </button>
-            <button class="btn btn-sm btn-danger"
-            tooltip="Excluir" (click)="excluirEvento(evento, confirm)">
+            <button class="btn btn-sm btn-danger" tooltip="Excluir" (click)="excluirEvento(evento, confirm)">
             <i class="fa fa-eraser"></i>
           </button>
         </div>
+      </td>
+      <td>
+        <a [routerLink]="['/evento',evento.id,'edit']" tooltip="Edição Detalhada" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
       </td>
     </tr>
   </tbody>

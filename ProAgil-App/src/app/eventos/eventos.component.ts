@@ -30,7 +30,7 @@ export class EventosComponent implements OnInit {
   dataAtual: string = '';
   fileNameToUpdate: string = '';
 
-  file: File[] = [];
+  file: File;
 
   imagemLargura = 50;
   imagemMargem = 2;
@@ -195,6 +195,7 @@ export class EventosComponent implements OnInit {
                 }
 
                 getEventos() {
+                  this.dataAtual = new Date().getMilliseconds().toString();
                   this.eventoService.getAllEvento().subscribe(
                     (_eventos: Evento[]) => {
                       this.eventos = _eventos;
@@ -205,4 +206,4 @@ export class EventosComponent implements OnInit {
                     }
                     );
                   }
-                }
+}
