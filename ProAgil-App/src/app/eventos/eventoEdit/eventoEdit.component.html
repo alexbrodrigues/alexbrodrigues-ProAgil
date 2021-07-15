@@ -1,4 +1,5 @@
 <app-titulo [titulo]="titulo"></app-titulo>
+<div class="container">
 <form [formGroup]="registerForm">
   <div class="row">
     <div class="col-md-8">
@@ -129,7 +130,7 @@ Deve ser um e-mail válido.
       </fieldset>
     </div>
     <div class="mt-2">
-      <button (click)="adicionarLote()"  class="btn btn-outline-primary">
+      <button (click)="adicionarLote()"  class="btn btn-sm btn-outline-primary">
         Adicionar Lote
       </button>
     </div>
@@ -175,7 +176,7 @@ Deve ser um e-mail válido.
 </fieldset>
 </div>
 <div class="mt-2">
-  <button (click)="adicionarRedeSocial()" class="btn btn-outline-primary">
+  <button (click)="adicionarRedeSocial()" class="btn btn-sm btn-outline-primary">
     Adicionar Rede Social
   </button>
 </div>
@@ -184,7 +185,7 @@ Deve ser um e-mail válido.
 <div class="row">
   <div class="col-md-12 d-flex justify-content-end">
     <!-- {{registerForm.value | json}} -->
-    <button [disabled]="!registerForm.valid" class="btn btn-success my-2"
+    <button [disabled]="!registerForm.valid" class="btn btn-sm btn-success my-2"
     (click)="salvarEvento()">Salvar Alterações</button>
     </div>
   </div>
@@ -211,7 +212,7 @@ Deve ser um e-mail válido.
       <hr>
       <p class="card-text">
         <b>Contatos</b><br>
-        <small class="text-muted">Telefone: {{evento.telefone | mask: '(000) 00000-0000'}}</small>
+        <small class="text-muted">Telefone: {{evento.telefone | mask: '(00) 00000-0000'}}</small>
         <br>
         <small class="text-muted">e-mail: {{evento.email}}</small>
       </p>
@@ -235,3 +236,4 @@ Deve ser um e-mail válido.
 </div>
 </div>
 </form>
+</div>
