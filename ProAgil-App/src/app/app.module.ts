@@ -25,7 +25,6 @@ import { TituloComponent } from './_shared/titulo/titulo.component';
 import { LoginComponent } from './user/user/login/login.component';
 import { RegistrationComponent } from './user/user/registration/registration.component';
 import { UserComponent } from './user/user/user.component';
-import { LOCALE_ID } from '@angular/core';
 
 import { DateTimeFormatPipePipe } from './_helps/DateTimeFormatPipe.pipe';
 import { AuthInterceptor } from './auth/auth.interceptor';

@@ -39,7 +39,7 @@ namespace ProAgil.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ProAgilContext>(
-                x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                x => x.UseMySql(Configuration.GetConnectionString("MySqlConnection"))
             );
 
             IdentityBuilder builder = services.AddIdentityCore<User>(options => 

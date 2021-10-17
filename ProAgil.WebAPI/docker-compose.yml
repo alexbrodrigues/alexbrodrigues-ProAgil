@@ -1,0 +1,39 @@
+version: "3.8"
+volumes: 
+    proagildb:
+
+networks:
+    mysqlNET:
+    proagilNET:
+
+services:
+    mysql:
+        image: "mysql:5.7"
+        container_name: mysql
+        ports:
+            - "3306:3306"
+        volumes:
+            - ProAgildb:/var/lib/mysql
+        networks:
+            - mysqlNET
+        enviroment:
+            - MYSQL_ROOT_PASSWORD=leleland 
+            - bind-address:0.0.0.0 
+            - MYSQL_USER=alex 
+            - MYSQL_PASSWORD=leleland 
+            - MYSQL_ROOT_HOST=% mysql:5.7
+    
+    proagil:
+      build:
+        context: Proagil.Repository
+        dockerfile: Dockerfile
+        container_name: proagil
+        networks:
+            - mysqlNET
+            - proagilNET
+        ports:
+            - 5000:80
+        enviroment:
+            - DBHOST=mysql
+        depends_on:
+            - mysql
